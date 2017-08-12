@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ArticlesMain>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+    Layout = "Master.cshtml";
+    var selection = CurrentPage.Children.Where("Visible").OrderBy("CreateDate desc");
+    @* OrderBy() takes the property to sort by and optionally order desc/asc *@
+}
+<div class="main-container">
+            <div class="main wrapper clearfix">
+                <section>
+                    <h2>@Umbraco.Field("articlesTitle")</h2>
+                    @Umbraco.Field("articlesBodyText")
+                    @Umbraco.RenderMacro("listArticles")
+                </section>
+                
+            </div>
+</div>
